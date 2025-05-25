@@ -1,0 +1,94 @@
+/* Estilos para El Rincón Perfumado */
+
+:root {
+  --color-primario: #c94a2b;
+  --color-secundario: #000000;
+  --color-fondo: #f8f9fa;
+  --color-alerta: #fff3cd;
+  --color-alerta-borde: #ffecb5;
+}
+
+body {
+  background-color: var(--color-fondo);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar personalizada */
+.navbar-brand {
+  font-weight: bold;
+  color: var(--color-primario) !important;
+}
+
+/* Botones personalizados */
+.btn-primary {
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+}
+
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active {
+  background-color: #a83c22;
+  border-color: #a83c22;
+}
+
+/* Tablas */
+.table-header-custom {
+  background-color: var(--color-primario);
+  color: white;
+}
+
+/* Alertas para stock crítico */
+.stock-alerta {
+  background-color: var(--color-alerta);
+  border-left: 4px solid #e0a800;
+}
+
+/* Notificación banner */
+.banner-alerta {
+  background-color: var(--color-alerta);
+  border-left: 5px solid #e0a800;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+/* Estilos de formulario */
+.form-login, 
+.form-perfume {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-title {
+  color: var(--color-primario);
+  margin-bottom: 20px;
+}
+
+/* Estilos para modal de confirmación */
+.modal-confirm-delete .modal-header {
+  background-color: var(--color-primario);
+  color: white;
+}
+
+/* Logo y branding */
+.perfume-icon {
+  margin-right: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table-responsive {
+    font-size: 0.9rem;
+  }
+  
+  .btn-sm-block {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+} 
