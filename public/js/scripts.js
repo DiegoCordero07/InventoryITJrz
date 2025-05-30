@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formAddPerfume.addEventListener('submit', (e) => {
       const nombre = document.getElementById('nombre');
       const cantidad = document.getElementById('cantidad');
+      const ubicacion = document.getElementById('ubicacion');
       
       if (!nombre.value.trim()) {
         e.preventDefault();
@@ -49,6 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (cantidad.value < 0) {
         e.preventDefault();
         mostrarAlerta('La cantidad no puede ser negativa', 'danger');
+      }
+
+      if (!ubicacion.value.trim()) {
+        e.preventDefault();
+        mostrarAlerta('La ubicación es obligatoria', 'danger');
       }
     });
   }
@@ -81,10 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = button.getAttribute('data-id');
         const nombre = button.getAttribute('data-nombre');
         const cantidad = button.getAttribute('data-cantidad');
+        const ubicacion = button.getAttribute('data-ubicacion');  
         
         document.getElementById('editId').value = id;
         document.getElementById('editNombre').value = nombre;
         document.getElementById('editCantidad').value = cantidad;
+        document.getElementById('editUbicacion').value = ubicacion;
       });
     });
   }

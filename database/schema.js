@@ -33,6 +33,7 @@ function inicializarBaseDeDatos() {
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           nombre TEXT NOT NULL,
           cantidad INTEGER CHECK(cantidad >= 0),
+          ubicacion TEXT,
           fecha_actualizacion DATE DEFAULT CURRENT_DATE
         )
       `, (err) => {

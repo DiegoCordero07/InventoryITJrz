@@ -177,7 +177,7 @@ app.get('/inventario', autenticarUsuario, (req, res) => {
 
 // Rutas para CRUD de perfumes
 app.post('/perfume/agregar', autenticarUsuario, (req, res) => {
-  const { nombre, cantidad } = req.body;
+  const { nombre, cantidad, ubicacion } = req.body;
   
   // Validar entrada
   if (!nombre) {
@@ -191,8 +191,8 @@ app.post('/perfume/agregar', autenticarUsuario, (req, res) => {
   
   // Insertar nuevo perfume
   db.run(
-    'INSERT INTO perfumes (nombre, cantidad) VALUES (?, ?)',
-    [nombre, cantidadNum],
+    'INSERT INTO perfumes (nombre, cantidad, ubicacion) VALUES (?, ?, ?)',
+    [nombre, cantidadNum, ubicacion],
     function(err) {
       if (err) {
         console.error('Error al agregar perfume:', err.message);
@@ -209,7 +209,7 @@ app.post('/perfume/agregar', autenticarUsuario, (req, res) => {
 });
 
 app.post('/perfume/editar', autenticarUsuario, (req, res) => {
-  const { id, nombre, cantidad } = req.body;
+  const { id, nombre, cantidad, ubicacion } = req.body;
   
   // Validar entrada
   if (!id || !nombre) {
@@ -223,8 +223,8 @@ app.post('/perfume/editar', autenticarUsuario, (req, res) => {
   
   // Actualizar perfume
   db.run(
-    'UPDATE perfumes SET nombre = ?, cantidad = ?, fecha_actualizacion = CURRENT_DATE WHERE id = ?',
-    [nombre, cantidadNum, id],
+    'UPDATE perfumes SET nombre = ?, cantidad = ?, ubicacion = ?, fecha_actualizacion = CURRENT_DATE WHERE id = ?',
+    [nombre, cantidadNum, ubicacion, id],
     function(err) {
       if (err) {
         console.error('Error al actualizar perfume:', err.message);

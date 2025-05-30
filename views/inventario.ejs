@@ -31,13 +31,14 @@
             <th>Nombre</th>
             <th>Cantidad</th>
             <th>Última Actualización</th>
+            <th>Ubicacion</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           <% if (perfumes.length === 0) { %>
             <tr>
-              <td colspan="5" class="text-center">No hay perfumes registrados</td>
+              <td colspan="5" class="text-center">No hay productos registrados</td>
             </tr>
           <% } else { %>
             <% perfumes.forEach(perfume => { %>
@@ -54,20 +55,24 @@
                   <% } %>
                 </td>
                 <td><%= perfume.fecha_actualizacion %></td>
+                <td><%= perfume.ubicacion %></td>
                 <td>
                   <button class="btn btn-sm btn-warning btn-edit-perfume" 
                           data-bs-toggle="modal" 
                           data-bs-target="#editPerfumeModal"
                           data-id="<%= perfume.id %>"
                           data-nombre="<%= perfume.nombre %>"
-                          data-cantidad="<%= perfume.cantidad %>">
+                          data-cantidad="<%= perfume.cantidad %>"
+                          data-ubicacion="<%= perfume.ubicacion %>">
                     <i class="fas fa-edit"></i>
                   </button>
                   <button class="btn btn-sm btn-danger btn-delete-perfume" 
                           data-bs-toggle="modal" 
                           data-bs-target="#deletePerfumeModal"
                           data-id="<%= perfume.id %>"
-                          data-nombre="<%= perfume.nombre %>">
+                          data-nombre="<%= perfume.nombre %>"
+                          data-ubicacion="<%= perfume.ubicacion %>">
+                          
                     <i class="fas fa-trash"></i>
                   </button>
                 </td>
@@ -98,6 +103,10 @@
             <label for="cantidad" class="form-label">Cantidad</label>
             <input type="number" class="form-control" id="cantidad" name="cantidad" min="0" value="0" required>
           </div>
+          <div class="mb-3">
+            <label for="ubicacion" class="form-label">Ubicación</label>
+            <input type="text" class="form-control" id="ubicacion" name="ubicacion" required>
+          </div>
           <div class="text-end">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -126,6 +135,10 @@
           <div class="mb-3">
             <label for="editCantidad" class="form-label">Cantidad</label>
             <input type="number" class="form-control" id="editCantidad" name="cantidad" min="0" required>
+          </div>
+          <div class="mb-3">
+            <label for="editUbicacion" class="form-label">Ubicación</label>
+            <input type="text" class="form-control" id="editUbicacion" name="ubicacion" required>
           </div>
           <div class="text-end">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
